@@ -1,0 +1,4 @@
+warning: mathlib: repository '././.lake/packages/mathlib' has local changes
+"4.19.0"
+"6caaee842e9495688c1567e78c0e68dbb96942aa"
+'Nat.add_comm' does not depend on any axioms

@@ -1,0 +1,12 @@
+Linux colima-palomar 6.8.0-117-generic #117-Ubuntu SMP PREEMPT_DYNAMIC Thu May  7 17:26:37 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
+Lean (version 4.35.0-rc2, aarch64-unknown-linux-gnu, commit 11acb17ec6b07a8f9e9173e6845197929540936b, Release)
+Lake version 5.0.0-src+11acb17 (Lean version 4.35.0-rc2)
+bubblewrap 0.9.0
+"4.35.0-rc2"
+"11acb17ec6b07a8f9e9173e6845197929540936b"
+'Nat.add_comm' does not depend on any axioms
+065356127b1dc0016f66b7283ce0ce2c4055aa55
+c52c979380b6027ed6423648c19967a984d17e6441bf84e0d0d6f0bf501661dd  Challenge.lean
+7a334c5eae550253a4bd5c5e6e867a0be56ce042fa988b28ed311cc8194c2af8  Solution.lean
+e9c6107a43b91f043e0b4e8f76a411e346bfe6cb83087058bbc8037398ed6b54  ImprovedSidorenko/Extremal.lean
+35313668a28567699f4cc077996714625a7857d2574bd5e7ab6eae849e4c35a7  ImprovedSidorenko/TuranDensity.lean

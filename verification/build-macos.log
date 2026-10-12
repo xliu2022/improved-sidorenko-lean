@@ -1,0 +1,249 @@
+⚠ [3092/3119] Replayed ImprovedSidorenko.Basic
+warning: ImprovedSidorenko/Basic.lean:44:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.legal_empty`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Basic.lean:73:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.edgeFailure_nonneg`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Basic.lean:79:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.edgeFailure_le_one`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Basic.lean:85:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.edgeFailure_eq_zero_iff`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Basic.lean:90:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.edgeFailure_congr`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Basic.lean:137:20: This simp argument is unused:
+  Function.update_of_ne hw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [fill, hw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3093/3119] Replayed ImprovedSidorenko.Extremal
+warning: ImprovedSidorenko/Extremal.lean:139:52: This simp argument is unused:
+  Fin.range_succAbove
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.mem_filter, Fin.succAboveEmb, Set.mem_compl_iff, Set.mem_singleton_iff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ImprovedSidorenko/Extremal.lean:140:6: This simp argument is unused:
+  Set.mem_compl_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.mem_filter, Fin.succAboveEmb, Fin.range_succAbove, Set.mem_singleton_iff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ImprovedSidorenko/Extremal.lean:140:25: This simp argument is unused:
+  Set.mem_singleton_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.mem_filter, Fin.succAboveEmb, Fin.range_succAbove, Set.mem_compl_iff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3095/3119] Replayed ImprovedSidorenko.LegalChoices
+warning: ImprovedSidorenko/LegalChoices.lean:151:8: This simp argument is unused:
+  hfilter
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3096/3119] Replayed ImprovedSidorenko.Conditional
+warning: ImprovedSidorenko/Conditional.lean:39:24: This simp argument is unused:
+  Function.update_of_ne hw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [swapSample]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ImprovedSidorenko/Conditional.lean:67:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.failureProb_nonneg`:
+  [Nonempty W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Conditional.lean:84:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.failureProb_update_of_not_mem`:
+  [Nonempty W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Conditional.lean:99:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.failureProb_completed`:
+  [Nonempty W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3097/3119] Replayed ImprovedSidorenko.Collision
+warning: ImprovedSidorenko/Collision.lean:100:10: This simp argument is unused:
+  Fintype.expect_eq_sum_div_card
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ImprovedSidorenko/Collision.lean:119:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.noninjective_iff_pair`:
+  [DecidableEq W]
+  [Fintype W]
+  [Nonempty W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq W] [Fintype W] [Nonempty W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3098/3119] Replayed ImprovedSidorenko.Independence
+warning: ImprovedSidorenko/Independence.lean:91:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.EventSupported.not`:
+  [DecidableEq V]
+  [Fintype V]
+  [Fintype W]
+  [Nonempty W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] [Fintype V] [Fintype W] [Nonempty W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Independence.lean:97:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.EventSupported.forall_finset`:
+  [Fintype V]
+  [Fintype W]
+  [Nonempty W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [Fintype W] [Nonempty W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Independence.lean:120:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.badEvent_probability`:
+  [Nonempty W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Independence.lean:130:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.badEvent_supported`:
+  [Fintype V]
+  [Fintype W]
+  [Nonempty W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [Fintype W] [Nonempty W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3099/3119] Replayed ImprovedSidorenko.EdgePotential
+warning: ImprovedSidorenko/EdgePotential.lean:47:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.remaining_le`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/EdgePotential.lean:51:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.remaining_pos`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/EdgePotential.lean:55:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.remaining_insert_of_mem`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/EdgePotential.lean:61:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.remaining_insert_of_not_mem`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/EdgePotential.lean:141:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.edgePotential_eq_sum_load`:
+  [Nonempty W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3100/3119] Replayed ImprovedSidorenko.LocalLemma
+warning: ImprovedSidorenko/LocalLemma.lean:57:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.LocalLemma.edge_weight_le_vertexLoad`:
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/LocalLemma.lean:340:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.LocalLemma.avoidEvents_insert`:
+  [Fintype Ω]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype Ω] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3101/3119] Replayed ImprovedSidorenko.Completion
+warning: ImprovedSidorenko/Completion.lean:29:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.support_disjoint_nonneighbors`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Completion.lean:72:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.unfinished_subset`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Completion.lean:96:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.all_edges_successful_of_avoid`:
+  [Fintype V]
+  [Fintype W]
+  [Nonempty W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [Fintype W] [Nonempty W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3107/3119] Replayed ImprovedSidorenko.Counting
+warning: ImprovedSidorenko/Counting.lean:128:8: This simp argument is unused:
+  Fintype.card_fun
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Nat.cast_mul, Nat.cast_pow]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3109/3119] Replayed Challenge
+warning: Challenge.lean:74:8: declaration uses `sorry`
+warning: Challenge.lean:84:8: declaration uses `sorry`
+warning: Challenge.lean:91:8: declaration uses `sorry`
+✔ [3111/3119] Built ImprovedSidorenko.Potential (5.8s)
+⚠ [3112/3119] Built ImprovedSidorenko.Embedding (1.9s)
+warning: ImprovedSidorenko/Embedding.lean:121:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ImprovedSidorenko/Embedding.lean:122:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3113/3119] Built ImprovedSidorenko.Main (1.7s)
+warning: ImprovedSidorenko/Main.lean:66:4: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: ImprovedSidorenko/Main.lean:105:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [3114/3119] Built ImprovedSidorenko.Normalization (1.9s)
+✔ [3115/3119] Built ImprovedSidorenko.TuranDensity (1.5s)
+✔ [3116/3119] Built ImprovedSidorenko (1.6s)
+✔ [3118/3119] Built Solution (1.5s)
+Build completed successfully (3119 jobs).

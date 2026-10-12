@@ -1,0 +1,88 @@
+@[expose] def ImprovedSidorenko.RGraph.IsEmbedding.{u, v} : {V : Type u} →
+  {W : Type v} →
+    [inst : DecidableEq V] →
+      [inst_1 : DecidableEq W] →
+        {r : ℕ} → ImprovedSidorenko.RGraph V r → ImprovedSidorenko.RGraph W r → (V → W) → Prop :=
+fun {V} {W} [DecidableEq V] [DecidableEq W] {r} F H f =>
+  Function.Injective f ∧ ∀ e ∈ F.edges, Finset.image f e ∈ H.edges
+@[expose] def ImprovedSidorenko.MainEmbeddingStatement : Prop :=
+∀ (r : ℕ),
+  3 ≤ r →
+    ∀ (k : ℕ) (F : ImprovedSidorenko.RGraph (Fin k) r),
+      1 ≤ F.edges.card →
+        ∀ (q : ℝ),
+          0 < q →
+            q < ImprovedSidorenko.paperGap r F.edges.card →
+              ∃ N,
+                ∀ (n : ℕ),
+                  N ≤ n →
+                    ∀ (H : ImprovedSidorenko.RGraph (Fin n) r),
+                      ImprovedSidorenko.hostDeficit H ≤ q → ∃ f, F.IsEmbedding H f
+@[expose] def ImprovedSidorenko.TuranUpperBound : {r k : ℕ} → ImprovedSidorenko.RGraph (Fin k) r → ℝ → Prop :=
+fun {r k} F b =>
+  ∀ (ε : ℝ),
+    0 < ε →
+      ∃ N,
+        ∀ (n : ℕ),
+          N ≤ n →
+            ∀ (H : ImprovedSidorenko.RGraph (Fin n) r),
+              (¬∃ f, F.IsEmbedding H f) → ↑r.factorial * ↑H.edges.card / ↑n ^ r ≤ b + ε
+@[expose] def ImprovedSidorenko.MainDensityStatement : Prop :=
+∀ (r : ℕ),
+  3 ≤ r →
+    ∀ (k : ℕ) (F : ImprovedSidorenko.RGraph (Fin k) r),
+      1 ≤ F.edges.card → ImprovedSidorenko.TuranUpperBound F (1 - ImprovedSidorenko.paperGap r F.edges.card)
+@[expose] def ImprovedSidorenko.BinomialTuranUpperBound : {r k : ℕ} → ImprovedSidorenko.RGraph (Fin k) r → ℝ → Prop :=
+fun {r k} F b =>
+  ∀ (ε : ℝ),
+    0 < ε →
+      ∃ N,
+        ∀ (n : ℕ),
+          N ≤ n →
+            ∀ (H : ImprovedSidorenko.RGraph (Fin n) r),
+              (¬∃ f, F.IsEmbedding H f) → ImprovedSidorenko.binomialDensity H ≤ b + ε
+ImprovedSidorenko.main_embedding : ImprovedSidorenko.MainEmbeddingStatement
+ImprovedSidorenko.main_density : ImprovedSidorenko.MainDensityStatement
+ImprovedSidorenko.main_binomial_density (r : ℕ) :
+  3 ≤ r →
+    ∀ (k : ℕ) (F : ImprovedSidorenko.RGraph (Fin k) r),
+      1 ≤ F.edges.card → ImprovedSidorenko.BinomialTuranUpperBound F (1 - ImprovedSidorenko.paperGap r F.edges.card)
+ImprovedSidorenko.main_binomial_limit_bound {r k : ℕ} (hr : 3 ≤ r) (F : ImprovedSidorenko.RGraph (Fin k) r)
+  (hm : 1 ≤ F.edges.card) (H : (n : ℕ) → ImprovedSidorenko.RGraph (Fin n) r)
+  (hfree : ∀ (n : ℕ), ¬∃ f, F.IsEmbedding (H n) f) {π : ℝ}
+  (hlimit : Filter.Tendsto (fun n => ImprovedSidorenko.binomialDensity (H n)) Filter.atTop (nhds π)) :
+  π ≤ 1 - ImprovedSidorenko.paperGap r F.edges.card
+'ImprovedSidorenko.RGraph.failureProb_tower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.RGraph.edgePotential_update' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.RGraph.cliquePotential_expected_increment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.RGraph.cliqueChoices_card_bound_by_potential' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ImprovedSidorenko.RGraph.one_step_decreases' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.RGraph.exists_small_load_partial_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.LocalLemma.finite_local_lemma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.LocalLemma.eventProb_local_lemma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.RGraph.local_completion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.noninjective_probability_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.RGraph.embedding_of_initial_potential' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.RGraph.cliqueKernel_empty_eq_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.paperConstant_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.kernel_embedding_of_polynomial_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.main_embedding' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.main_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.normalizationFactor_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.main_binomial_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.main_binomial_limit_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@[expose] def ImprovedSidorenko.extremalNumber : {r k : ℕ} → ImprovedSidorenko.RGraph (Fin k) r → ℕ → ℕ :=
+fun {r k} F n => Nat.findGreatest (fun m => ∃ H, (¬∃ f, F.IsEmbedding H f) ∧ H.edges.card = m) (n.choose r)
+@[expose] def ImprovedSidorenko.turanDensity : {r k : ℕ} → ImprovedSidorenko.RGraph (Fin k) r → ℝ :=
+fun {r k} F => ⨅ n, ImprovedSidorenko.extremalDensity F (n + r)
+'ImprovedSidorenko.RGraph.exists_extremal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.RGraph.delete_vertex_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.RGraph.sum_deleted_edge_counts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.extremalDensity_succ_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.extremalDensity_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.main_turan_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.Registry.embedding' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.Registry.limit_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.Registry.main_theorem' depends on axioms: [propext, Classical.choice, Quot.sound]

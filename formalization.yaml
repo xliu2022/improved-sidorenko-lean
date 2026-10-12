@@ -1,0 +1,109 @@
+version: "v0.4"
+
+project:
+  name: "Improved Sidorenko bound for hypergraph Turán densities"
+  description: >-
+    For every finite simple r-uniform hypergraph F with r >= 3 and m >= 1
+    edges, the Turán density is at most 1-c_r/m^((r-1)/r), where
+    c_r=(1/(4r^2))(4/r)^(1/r)(1-1/r)^(2-2/r). The formalization proves
+    the finite embedding argument using two potentials and the Lovász Local
+    Lemma, constructs the extremal numbers, and proves the existence of their
+    binomial-normalized limit by vertex deletion and double counting.
+  authors: ["Xizhi Liu"]
+  responsible_maintainers: ["Xizhi Liu"]
+  license: "Apache-2.0"
+
+classification:
+  arxiv: ["math.CO"]
+  msc2020: ["05C65", "05C35", "05D40"]
+
+sources:
+  - title: "Improved Sidorenko bound for hypergraph Turán densities"
+    authors: ["Shuyan Chen", "Xinmin Hou", "Xizhi Liu"]
+    type: "paper"
+    location: "Manuscript included at paper/main.pdf and paper/main.tex"
+    relationship: "formalizes"
+    note: >-
+      The finite embedding theorem and Theorem 1.1 are formalized with the
+      manuscript's exact constant. The introductory lower bounds and the
+      optimal-exponent discussion are outside the submitted formalization.
+  - title: "On a graph-problem of Turán"
+    authors: ["Gyula O. H. Katona", "Tibor Nemetz", "Miklós Simonovits"]
+    type: "paper"
+    location: "Mat. Lapok 15 (1964), 228–238; https://real.mtak.hu/21126/1/paper_2.pdf"
+    relationship: "formalizes"
+    note: >-
+      The single-forbidden-hypergraph limit-existence theorem is proved by
+      the standard vertex-deletion averaging argument. The formalization
+      does not assume convergence as an input to the main theorem.
+
+related_formalizations: []
+
+status:
+  scope: >-
+    The submitted declarations are the finite embedding assertion, the
+    existence of the binomial-normalized extremal-density limit, and the
+    main upper bound for that formally defined Turán density. All vertices,
+    including isolated vertices, are covered by globally injective embeddings.
+    The project does not formalize the external lower bounds in the introduction
+    or implement an executable embedding-search algorithm.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+
+automation:
+  methods:
+    - method: "agent"
+      models: ["GPT-6 (Codex; migration and extremal-limit extension)"]
+      framework: "Codex"
+      tool_setup: "Lean, mathlib tactics, source inspection and local command-line verification"
+  notes: >-
+    Xizhi Liu supplied the manuscript and the existing Lean 4.19 formalization,
+    directed this revision, and specified the authorship and license. Generative
+    AI assisted with the module migration, the extremal-limit extension,
+    exposition, configuration and verification. The original archive records
+    its Lean checks but does not identify its original model; that information
+    has not been reconstructed. Challenge's three deliberate statement holes
+    are excluded from status.sorry_count and must not occur in Solution's proofs.
+
+fidelity:
+  divergences: >-
+    Finite vertex sets are represented by Fin k. The Turán density is defined
+    as the infimum of normalized extremal numbers for n >= r, and the
+    limit-existence theorem identifies this with the classical limit.
+    No additional convergence, independence, counting or parameter hypothesis
+    is imposed on the main theorem.
+
+review:
+  status: "self-assessed; kernel-verified"
+  reviewers: ["GPT-6 (Codex)"]
+  notes: >-
+    The statements, extremal-number definition, vertex-deletion argument,
+    normalization and source correspondence were checked by the Codex agent.
+    On 2026-10-12 the full project compiled with the official Lean 4.35.0-rc2
+    toolchain on macOS and Linux. The default-sandbox Comparator accepted all
+    three submitted declarations; Lean, NanoDa and con-ron accepted the solution.
+    A separate audit of 28 declarations found only the three listed standard
+    axioms. Evidence is in verification/. No independent human peer review or
+    Palomar editorial review is claimed.
+
+alignment:
+  namespace: "ImprovedSidorenko"
+  statements:
+    - source: "Main manuscript, Section 2: finite embedding assertion"
+      lean: "ImprovedSidorenko.Registry.embedding"
+      module: "Solution"
+      status: "proved"
+    - source: "Katona–Nemetz–Simonovits: Turán density limit existence"
+      lean: "ImprovedSidorenko.Registry.limit_exists"
+      module: "Solution"
+      status: "proved"
+    - source: "Main manuscript, Theorem 1.1"
+      lean: "ImprovedSidorenko.Registry.main_theorem"
+      module: "Solution"
+      status: "proved"
+
+acknowledgements: >-
+  The proof uses mathlib and Lean. The submission validators, Comparator
+  script and CI layout are adapted from the Apache-2.0 PalomarTemplate,
+  commit 2891de4c48955af824969a263d31b25e7a9a1406.

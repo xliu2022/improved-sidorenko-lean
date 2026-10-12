@@ -1,0 +1,125 @@
+{
+  "lean_version": "4.19.0",
+  "lean_commit": "6caaee842e9495688c1567e78c0e68dbb96942aa",
+  "mathlib_commit": "c44e0c8ee63ca166450922a373c7409c5d26b00b",
+  "build_exit_code": 0,
+  "axiom_audit_exit_code": 0,
+  "source_scan_exit_code": 0,
+  "runtime_version_check_exit_code": 0,
+  "mathematical_modules": 19,
+  "aggregate_modules": 1,
+  "theorem_and_lemma_declarations": 158,
+  "definition_structure_abbreviation_declarations": 42,
+  "source_lines_including_comments_and_blanks": 3083,
+  "axioms": {
+    "ImprovedSidorenko.RGraph.failureProb_tower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.RGraph.edgePotential_update": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.RGraph.cliquePotential_expected_increment": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.RGraph.cliqueChoices_card_bound_by_potential": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.RGraph.one_step_decreases": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.RGraph.exists_small_load_partial_map": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.LocalLemma.finite_local_lemma": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.LocalLemma.eventProb_local_lemma": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.RGraph.local_completion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.noninjective_probability_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.RGraph.embedding_of_initial_potential": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.RGraph.cliqueKernel_empty_eq_density": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.paperConstant_pow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.kernel_embedding_of_polynomial_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.main_embedding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.main_density": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.normalizationFactor_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.main_binomial_density": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.main_binomial_limit_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "main_results": [
+    "main_embedding",
+    "main_density",
+    "main_binomial_density",
+    "main_binomial_limit_bound"
+  ],
+  "scope": "The complete finite embedding proof and the uniform asymptotic bound in standard binomial normalization; a limit corollary takes convergence as input.",
+  "not_formalized": [
+    "Construction of ex(n,F)",
+    "The general Katona-Nemetz-Simonovits limit existence theorem",
+    "External lower bounds and optimal-exponent claims from the introduction",
+    "An executable embedding search algorithm"
+  ],
+  "environment": "Official unmodified Lean shared library called through an explicit-installation-path C host, trust level 0. See ENVIRONMENT_AUDIT.md."
+}

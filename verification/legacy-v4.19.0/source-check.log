@@ -1,0 +1,6 @@
+Lean source files: 20 (including the aggregate import file)
+Source lines, including comments and blank lines: 3083
+Named theorem/lemma declarations: 158
+Definitions/structures/abbreviations: 42
+PASS: no proof placeholders, extra axioms, native_decide, or unsafe declarations in project sources.
+This textual check supplements, and does not replace, Lean's kernel and #print axioms checks.

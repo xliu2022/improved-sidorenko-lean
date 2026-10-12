@@ -1,0 +1,176 @@
+{
+  "date": "2026-10-12",
+  "lean_version": "4.35.0-rc2",
+  "lean_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+  "mathlib_commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+  "build_macos_exit_code": 0,
+  "build_linux_exit_code": 0,
+  "axiom_audit_exit_code": 0,
+  "source_scan_exit_code": 0,
+  "metadata_validation_exit_code": 0,
+  "comparator_linux_exit_code": 0,
+  "comparator_sandbox": "default bubblewrap; not disabled",
+  "accepted_kernels": [
+    "Lean default",
+    "NanoDa",
+    "con-ron"
+  ],
+  "con_ron_accepted_declarations": 18131,
+  "compared_theorems": [
+    "ImprovedSidorenko.Registry.embedding",
+    "ImprovedSidorenko.Registry.limit_exists",
+    "ImprovedSidorenko.Registry.main_theorem"
+  ],
+  "regular_lean_source_files": 26,
+  "largest_source_lines": 424,
+  "challenge_lines": 98,
+  "challenge_bytes": 3933,
+  "proof_sorry_count": 0,
+  "challenge_statement_holes": 3,
+  "audited_declarations": 28,
+  "axioms": {
+    "ImprovedSidorenko.RGraph.failureProb_tower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.RGraph.edgePotential_update": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.RGraph.cliquePotential_expected_increment": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.RGraph.cliqueChoices_card_bound_by_potential": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.RGraph.one_step_decreases": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.RGraph.exists_small_load_partial_map": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.LocalLemma.finite_local_lemma": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.LocalLemma.eventProb_local_lemma": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.RGraph.local_completion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.noninjective_probability_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.RGraph.embedding_of_initial_potential": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.RGraph.cliqueKernel_empty_eq_density": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.paperConstant_pow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.kernel_embedding_of_polynomial_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.main_embedding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.main_density": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.normalizationFactor_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.main_binomial_density": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.main_binomial_limit_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.RGraph.exists_extremal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.RGraph.delete_vertex_card_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.RGraph.sum_deleted_edge_counts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.extremalDensity_succ_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.extremalDensity_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.main_turan_density": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.Registry.embedding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.Registry.limit_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ImprovedSidorenko.Registry.main_theorem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "ci_executed_remotely": false,
+  "palomar_submitted": false,
+  "palomar_registered": false
+}

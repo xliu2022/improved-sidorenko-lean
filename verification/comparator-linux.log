@@ -1,0 +1,360 @@
+Lean source files: 23 (including the aggregate import file)
+Source lines, including comments and blank lines: 3467
+Named theorem/lemma declarations: 175
+Definitions/structures/abbreviations: 47
+PASS: no proof placeholders, extra axioms, native_decide, or unsafe declarations in project sources.
+Challenge.lean is excluded: its three deliberate statement holes are checked against Solution by Comparator.
+This textual check supplements, and does not replace, Lean's kernel and #print axioms checks.
+formalization.yaml contains no TEMPLATE values
+@[expose] def ImprovedSidorenko.RGraph.IsEmbedding.{u, v} : {V : Type u} →
+  {W : Type v} →
+    [inst : DecidableEq V] →
+      [inst_1 : DecidableEq W] →
+        {r : ℕ} → ImprovedSidorenko.RGraph V r → ImprovedSidorenko.RGraph W r → (V → W) → Prop :=
+fun {V} {W} [DecidableEq V] [DecidableEq W] {r} F H f =>
+  Function.Injective f ∧ ∀ e ∈ F.edges, Finset.image f e ∈ H.edges
+@[expose] def ImprovedSidorenko.MainEmbeddingStatement : Prop :=
+∀ (r : ℕ),
+  3 ≤ r →
+    ∀ (k : ℕ) (F : ImprovedSidorenko.RGraph (Fin k) r),
+      1 ≤ F.edges.card →
+        ∀ (q : ℝ),
+          0 < q →
+            q < ImprovedSidorenko.paperGap r F.edges.card →
+              ∃ N,
+                ∀ (n : ℕ),
+                  N ≤ n →
+                    ∀ (H : ImprovedSidorenko.RGraph (Fin n) r),
+                      ImprovedSidorenko.hostDeficit H ≤ q → ∃ f, F.IsEmbedding H f
+@[expose] def ImprovedSidorenko.TuranUpperBound : {r k : ℕ} → ImprovedSidorenko.RGraph (Fin k) r → ℝ → Prop :=
+fun {r k} F b =>
+  ∀ (ε : ℝ),
+    0 < ε →
+      ∃ N,
+        ∀ (n : ℕ),
+          N ≤ n →
+            ∀ (H : ImprovedSidorenko.RGraph (Fin n) r),
+              (¬∃ f, F.IsEmbedding H f) → ↑r.factorial * ↑H.edges.card / ↑n ^ r ≤ b + ε
+@[expose] def ImprovedSidorenko.MainDensityStatement : Prop :=
+∀ (r : ℕ),
+  3 ≤ r →
+    ∀ (k : ℕ) (F : ImprovedSidorenko.RGraph (Fin k) r),
+      1 ≤ F.edges.card → ImprovedSidorenko.TuranUpperBound F (1 - ImprovedSidorenko.paperGap r F.edges.card)
+@[expose] def ImprovedSidorenko.BinomialTuranUpperBound : {r k : ℕ} → ImprovedSidorenko.RGraph (Fin k) r → ℝ → Prop :=
+fun {r k} F b =>
+  ∀ (ε : ℝ),
+    0 < ε →
+      ∃ N,
+        ∀ (n : ℕ),
+          N ≤ n →
+            ∀ (H : ImprovedSidorenko.RGraph (Fin n) r),
+              (¬∃ f, F.IsEmbedding H f) → ImprovedSidorenko.binomialDensity H ≤ b + ε
+ImprovedSidorenko.main_embedding : ImprovedSidorenko.MainEmbeddingStatement
+ImprovedSidorenko.main_density : ImprovedSidorenko.MainDensityStatement
+ImprovedSidorenko.main_binomial_density (r : ℕ) :
+  3 ≤ r →
+    ∀ (k : ℕ) (F : ImprovedSidorenko.RGraph (Fin k) r),
+      1 ≤ F.edges.card → ImprovedSidorenko.BinomialTuranUpperBound F (1 - ImprovedSidorenko.paperGap r F.edges.card)
+ImprovedSidorenko.main_binomial_limit_bound {r k : ℕ} (hr : 3 ≤ r) (F : ImprovedSidorenko.RGraph (Fin k) r)
+  (hm : 1 ≤ F.edges.card) (H : (n : ℕ) → ImprovedSidorenko.RGraph (Fin n) r)
+  (hfree : ∀ (n : ℕ), ¬∃ f, F.IsEmbedding (H n) f) {π : ℝ}
+  (hlimit : Filter.Tendsto (fun n => ImprovedSidorenko.binomialDensity (H n)) Filter.atTop (nhds π)) :
+  π ≤ 1 - ImprovedSidorenko.paperGap r F.edges.card
+'ImprovedSidorenko.RGraph.failureProb_tower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.RGraph.edgePotential_update' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.RGraph.cliquePotential_expected_increment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.RGraph.cliqueChoices_card_bound_by_potential' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ImprovedSidorenko.RGraph.one_step_decreases' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.RGraph.exists_small_load_partial_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.LocalLemma.finite_local_lemma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.LocalLemma.eventProb_local_lemma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.RGraph.local_completion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.noninjective_probability_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.RGraph.embedding_of_initial_potential' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.RGraph.cliqueKernel_empty_eq_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.paperConstant_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.kernel_embedding_of_polynomial_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.main_embedding' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.main_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.normalizationFactor_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.main_binomial_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.main_binomial_limit_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@[expose] def ImprovedSidorenko.extremalNumber : {r k : ℕ} → ImprovedSidorenko.RGraph (Fin k) r → ℕ → ℕ :=
+fun {r k} F n => Nat.findGreatest (fun m => ∃ H, (¬∃ f, F.IsEmbedding H f) ∧ H.edges.card = m) (n.choose r)
+@[expose] def ImprovedSidorenko.turanDensity : {r k : ℕ} → ImprovedSidorenko.RGraph (Fin k) r → ℝ :=
+fun {r k} F => ⨅ n, ImprovedSidorenko.extremalDensity F (n + r)
+'ImprovedSidorenko.RGraph.exists_extremal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.RGraph.delete_vertex_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.RGraph.sum_deleted_edge_counts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.extremalDensity_succ_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.extremalDensity_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.main_turan_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.Registry.embedding' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.Registry.limit_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ImprovedSidorenko.Registry.main_theorem' depends on axioms: [propext, Classical.choice, Quot.sound]
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+No files to download
+Already decompressed 3077 file(s)
+Resolving dependencies
+Building Challenge
+⚠ [2038/2039] Replayed Challenge
+warning: Challenge.lean:74:8: declaration uses `sorry`
+warning: Challenge.lean:84:8: declaration uses `sorry`
+warning: Challenge.lean:91:8: declaration uses `sorry`
+Build completed successfully (2039 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, ImprovedSidorenko.Registry.embedding, ImprovedSidorenko.Registry.limit_exists, ImprovedSidorenko.Registry.main_theorem, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from Challenge
+Building Solution
+⚠ [3092/3116] Replayed ImprovedSidorenko.Basic
+warning: ImprovedSidorenko/Basic.lean:44:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.legal_empty`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Basic.lean:73:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.edgeFailure_nonneg`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Basic.lean:79:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.edgeFailure_le_one`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Basic.lean:85:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.edgeFailure_eq_zero_iff`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Basic.lean:90:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.edgeFailure_congr`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Basic.lean:137:20: This simp argument is unused:
+  Function.update_of_ne hw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [fill, hw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3093/3116] Replayed ImprovedSidorenko.Extremal
+warning: ImprovedSidorenko/Extremal.lean:139:52: This simp argument is unused:
+  Fin.range_succAbove
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.mem_filter, Fin.succAboveEmb, Set.mem_compl_iff, Set.mem_singleton_iff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ImprovedSidorenko/Extremal.lean:140:6: This simp argument is unused:
+  Set.mem_compl_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.mem_filter, Fin.succAboveEmb, Fin.range_succAbove, Set.mem_singleton_iff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ImprovedSidorenko/Extremal.lean:140:25: This simp argument is unused:
+  Set.mem_singleton_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.mem_filter, Fin.succAboveEmb, Fin.range_succAbove, Set.mem_compl_iff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3095/3116] Replayed ImprovedSidorenko.LegalChoices
+warning: ImprovedSidorenko/LegalChoices.lean:151:8: This simp argument is unused:
+  hfilter
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3096/3116] Replayed ImprovedSidorenko.Conditional
+warning: ImprovedSidorenko/Conditional.lean:39:24: This simp argument is unused:
+  Function.update_of_ne hw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [swapSample]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ImprovedSidorenko/Conditional.lean:67:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.failureProb_nonneg`:
+  [Nonempty W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Conditional.lean:84:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.failureProb_update_of_not_mem`:
+  [Nonempty W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Conditional.lean:99:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.failureProb_completed`:
+  [Nonempty W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3097/3116] Replayed ImprovedSidorenko.Collision
+warning: ImprovedSidorenko/Collision.lean:100:10: This simp argument is unused:
+  Fintype.expect_eq_sum_div_card
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ImprovedSidorenko/Collision.lean:119:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.noninjective_iff_pair`:
+  [DecidableEq W]
+  [Fintype W]
+  [Nonempty W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq W] [Fintype W] [Nonempty W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3098/3116] Replayed ImprovedSidorenko.Independence
+warning: ImprovedSidorenko/Independence.lean:91:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.EventSupported.not`:
+  [DecidableEq V]
+  [Fintype V]
+  [Fintype W]
+  [Nonempty W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] [Fintype V] [Fintype W] [Nonempty W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Independence.lean:97:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.EventSupported.forall_finset`:
+  [Fintype V]
+  [Fintype W]
+  [Nonempty W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [Fintype W] [Nonempty W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Independence.lean:120:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.badEvent_probability`:
+  [Nonempty W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Independence.lean:130:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.badEvent_supported`:
+  [Fintype V]
+  [Fintype W]
+  [Nonempty W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [Fintype W] [Nonempty W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3099/3116] Replayed ImprovedSidorenko.EdgePotential
+warning: ImprovedSidorenko/EdgePotential.lean:47:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.remaining_le`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/EdgePotential.lean:51:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.remaining_pos`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/EdgePotential.lean:55:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.remaining_insert_of_mem`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/EdgePotential.lean:61:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.remaining_insert_of_not_mem`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/EdgePotential.lean:141:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.edgePotential_eq_sum_load`:
+  [Nonempty W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3100/3116] Replayed ImprovedSidorenko.LocalLemma
+warning: ImprovedSidorenko/LocalLemma.lean:57:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.LocalLemma.edge_weight_le_vertexLoad`:
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/LocalLemma.lean:340:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.LocalLemma.avoidEvents_insert`:
+  [Fintype Ω]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype Ω] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3101/3116] Replayed ImprovedSidorenko.Completion
+warning: ImprovedSidorenko/Completion.lean:29:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.support_disjoint_nonneighbors`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Completion.lean:72:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.unfinished_subset`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ImprovedSidorenko/Completion.lean:96:0: automatically included section variable(s) unused in theorem `ImprovedSidorenko.RGraph.all_edges_successful_of_avoid`:
+  [Fintype V]
+  [Fintype W]
+  [Nonempty W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [Fintype W] [Nonempty W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3104/3116] Replayed ImprovedSidorenko.Embedding
+warning: ImprovedSidorenko/Embedding.lean:121:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ImprovedSidorenko/Embedding.lean:122:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3109/3116] Replayed ImprovedSidorenko.Counting
+warning: ImprovedSidorenko/Counting.lean:128:8: This simp argument is unused:
+  Fintype.card_fun
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Nat.cast_mul, Nat.cast_pow]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3110/3116] Replayed ImprovedSidorenko.Main
+warning: ImprovedSidorenko/Main.lean:66:4: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: ImprovedSidorenko/Main.lean:105:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Build completed successfully (3116 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, ImprovedSidorenko.Registry.embedding, ImprovedSidorenko.Registry.limit_exists, ImprovedSidorenko.Registry.main_theorem, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from Solution
+Running con-ron kernel on solution
+con-ron: 1 inductive blocks modelled in-process: Lean.Syntax (30 generated records, checked by the fold as declarations and not counted as records of the file)
+con-ron: 2 declarations hoisted ahead of the pinned Nat operations they ground: Nat.mul._f, Nat.mul
+con-ron: accepted 18131 declarations (--verified)
+con-ron kernel accepts the solution
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution
+Lean default kernel accepts the solution
+Your solution is okay!

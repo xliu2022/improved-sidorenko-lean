@@ -1,0 +1,8 @@
+Lean source files: 23 (including the aggregate import file)
+Source lines, including comments and blank lines: 3467
+Named theorem/lemma declarations: 175
+Definitions/structures/abbreviations: 47
+PASS: no proof placeholders, extra axioms, native_decide, or unsafe declarations in project sources.
+Challenge.lean is excluded: its three deliberate statement holes are checked against Solution by Comparator.
+This textual check supplements, and does not replace, Lean's kernel and #print axioms checks.
+formalization.yaml contains no TEMPLATE values
